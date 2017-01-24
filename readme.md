@@ -1,1 +1,3 @@
-Directories and files here represent my finished and on-going assignments as I go through the 2017 Coding Dojo Bootcamp Winter Session.
+ # 2017 Coding Dojo Bootcamp-Winter Session 
+
+These files and directories represent my on-going and finished assignments as I go through my fullstack development bootcamp.
