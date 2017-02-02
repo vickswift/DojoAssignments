@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="A simple jQuery website using hover method">
+    <!-- <link rel="stylesheet" href="hover-style.css"> -->
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+    <style media="screen">
+      .suit{
+        background: orange;
+        display: block;
+        padding: 50px 0 50px 200px;
+      }
+      .top-suit{
+        display: block;;
+      }
+      .bottom-suit{
+        display: block;;
+      }
+      img{
+        width: 200px;
+        height: 200px;
+        border: 5px solid grey;
+      }
+      ul li{
+        list-style-type: none;
+        display: inline-block;
+      }
+    </style>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+          $("img").on( "mouseover", function() {
+            currentImage = $(this).attr("src");
+            $(this).attr('src', $(this).attr('data-alt-src'));
+          });
+          $("img").on( "mouseleave", function() {
+            $(this).attr('src', currentImage);
+          });
+        });
+    </script>
+
+    <title>Dresser Room using jQuery hover</title>
+  </head>
+  <body>
+
+    <div class="suit">
+        <div class="top-suit">
+          <ul>
+            <li><img src="business-suit.png" data-alt-src="lovely.png" alt="Business Suit"></li>
+            <li><img src="church-suit.png" data-alt-src="lovely.png" alt="Church Suit"></li>
+          </ul>
+        </div>
+
+      <div class="bottom-suit">
+        <ul>
+          <li><img src="prom-suit.png" data-alt-src="lovely.png" alt="Prom Suit"></li>
+          <li><img src="wedding-suit.png" data-alt-src="lovely.png" alt="Wedding Suit"></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </body>
+</html>

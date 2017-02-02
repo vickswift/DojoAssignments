@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="A simple game site of disappearing ninjas">
+    <link rel="stylesheet" href="ninja-style.css">
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('img').click(function(){
+        $(this).hide();
+      });
+      $('button').click(function(){
+        $("img").show();
+      });
+
+    });
+
+    </script>
+    <title>Disappearing Ninja</title>
+  </head>
+  <body>
+    <div class="ninjas">
+      <div class="images">
+
+        <div class="top-image">
+          <ul>
+            <li><img src="mario-meet-sonic.jpeg" alt="Mario meets sonic"></li>
+            <li><img src="mario-meet-sonic.jpeg" alt="Mario meets sonic"></li>
+            <li><img src="mario-meet-sonic.jpeg" alt="Mario meets sonic"></li>
+            <li><img src="mario-meet-sonic.jpeg" alt="Mario meets sonic"></li>
+          </ul>
+        </div>
+        <div class="bottom-image">
+          <ul>
+            <li><img src="mario-meet-sonic.jpeg" alt="Mario meets sonic"></li>
+            <li><img src="mario-meet-sonic.jpeg" alt="Mario meets sonic"></li>
+            <li><img src="mario-meet-sonic.jpeg" alt="Mario meets sonic"></li>
+            <li><img src="mario-meet-sonic.jpeg" alt="Mario meets sonic"></li>
+          </ul>
+        </div>
+
+        <button type="button" name="button">Restore</button>
+
+      </div>
+
+    </div>
+  </body>
+</html>

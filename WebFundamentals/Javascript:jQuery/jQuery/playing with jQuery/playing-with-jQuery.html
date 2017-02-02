@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery</title>
+    <link rel="stylesheet" href="style.css">
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+
+    $(document).ready(function(){
+
+      //addClass
+      $("#change-header-color").click(function(){
+        $("h3").addClass("blue");
+      });
+
+      //Hover and Click
+    $( ".hover-click" ).on( "mouseover", function() {
+      $( this ).css( "color", "red" );
+    });
+    $( ".hover-click" ).click(function() {
+      $( this ).css( "color", "black" );
+    });
+
+    //Hide & Show
+    $(".hide").click(function(){
+      $(".hide-show p").hide();
+    });
+
+    $(".show").click(function(){
+      $(".hide-show p").show();
+    });
+
+    //fadeIn and fadeOut
+    $("#fade-in").click(function(){
+        $(".red-box").fadeIn();
+        $(".green-box").fadeIn("slow");
+        $(".blue-box").fadeIn(3000);
+    });
+
+    $("#fade-out").click(function(){
+        $(".red-box").fadeOut();
+        $(".green-box").fadeOut("slow");
+        $(".blue-box").fadeOut(3000);
+    });
+
+    //slideToggle
+    $("#slide-toggle").click(function(){
+      $(".slideToggle").slideToggle();
+    });
+
+    //slideUp and slideDown
+    $("#slide-up").click(function(){
+      $(".slideUp-or-Down").slideUp();
+    });
+    $("#slide-down").click(function(){
+      $(".slideUp-or-Down").slideDown();
+    });
+
+    $("#before").click(function(){
+      $(".addBefore-or-After").before("<p>Who said this:</p>");
+    });
+    $("#after").click(function(){
+      $(".addBefore-or-After").after("<br>Albert Einstein");
+    });
+
+    //append()
+    $("#append").click(function(){
+      $(".append-after").append(" more problems");
+    });
+
+    //html
+    $("button#swap-text").click(function(){
+      $(".text-to-swap").html("<p>All new content</p>");
+    });
+
+    //attr
+    $("#img-btn").click(function(){
+      $("img").attr({"width":"300", "height":"240"});
+    });
+
+    $("input").keyup(function () {
+     var value = $(this).val();
+     $("#text-input").text(value);
+   }).keyup();
+
+   //text
+   $("#change-text").click(function(){
+     $('.change-text').text("Text changed");
+   });
+
+   //data
+   $("#attach-data").click(function(){
+        $("#show-data-p").data("fullname", "Victor Adu");
+    });
+    $("#retrieve-data").click(function(){
+        alert($("#show-data-p").data("fullname"));
+        console.log($("#show-data-p").data("fullname"));
+    });
+
+  });
+
+    </script>
+  </head>
+  <body>
+    <h1>Playing with jQuery</h1>
+
+    <button id="change-header-color" type="button" name="button">
+      Click to Change color for all headers on this page!</button>
+
+    <h3>Using the .click method</h3>
+
+    <h5>Hover over paragraph below to change color. Click it to revert:</h5>
+
+    <p class="hover-click">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+       id est laborum.</p>
+
+     <h3>Using the .hide and .show method</h3>
+
+     <h5>Click on buttons below to hide, and or, show paragraph beneath</h5>
+
+     <div class="hide-show">
+     <button class="hide" type="button" name="button">Hide</button>
+     <button class="show" type="button" name="button">Show</button>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+       commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+        id est laborum.</p>
+        </div>
+
+      <h3>Using the fadeIn method</h3>
+
+      <h5>Click on buttons below to fade in, and or, fade out boxes beneath</h5>
+
+      <button id="fade-in">Click to fade in boxes</button>
+      <button id="fade-out">Click to fade Out boxes</button><br><br>
+
+
+        <div class="red-box">RED</div>
+        <div class="green-box">GREEN</div>
+        <div class="blue-box">BLUE</div>
+
+        <h3>Using the slideUp method</h3>
+
+        <h5>Click on button below to slide up or slide down</h5>
+
+        <button id="slide-up">Click to slide up</button>
+        <button id="slide-down">Click to slide Down</button>
+
+        <p class="slideUp-or-Down">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+           cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+           id est laborum.</p>
+
+        <h3>Using the slideToggle method</h3>
+
+        <h5>Click on button below to slide</h5>
+
+        <button id="slide-toggle">Click to slideToggle</button>
+
+        <p class="slideToggle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+           cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+           id est laborum.</p>
+
+           <h3>Using the .before() and .after() methods</h3>
+
+           <h5>Click on buttons below to find out who made below statement:</h5>
+
+           <button id="before">Insert Text before</button>
+           <button id="after">Insert Text after</button>
+
+        <div class="addBefore-or-After">
+          "Imagination is more powerful than knowledge"
+        </div>
+
+        <h3>Using the .append() method</h3>
+
+        <h5>Click on buttons below to finish the sentence below:</h5>
+
+        <button id="append">Click to Append text</button>
+
+        <div class="append-after">
+            "More money,
+        </div>
+
+        <h3>Using the .html() method</h3>
+
+        <h5>Click on button below to swap text in html p element</h5>
+
+        <button id="swap-text">Click to swap text below</button>
+
+        <p class="text-to-swap">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+           cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+           id est laborum.</p>
+
+         <h3>Using the .html() method</h3>
+
+         <h5>Click on button below to resize Image</h5>
+
+         <button id="img-btn" type="button" name="button">Click Me Resize Image!</button>
+
+         <img src="acme_logo.jpg" alt="Acme Logo">
+
+         <div class="text-input">
+           <input type="text" value="some text"/>
+            <p id="text-input"></p>
+         </div>
+
+         <h3>Using the .text method</h3>
+
+         <h5>Click on button below to change text</h5>
+
+         <button id="change-text" type="button" name="button">Click to change text</button>
+
+         <p class="change-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+             veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+             commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+             velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+              id est laborum.</p>
+
+              <h3>Using the .data method</h3>
+
+              <h5>Click on button below to attach and showcase data</h5>
+
+
+          <button id="attach-data">Attach data to div element</button><br>
+          <button id="retrieve-data">Retrieve data</button>
+
+          <p id="show-data-p"></p>
+
+<!-- Test atleast the jQuery below: -->
+
+    <!-- .click
+    .hide
+    .show
+    .toggle
+    .slideDown
+    .slideUp
+    .slideToggle
+    .fadeIn
+    .fadeOut
+    .addClass
+    .before
+    .after
+    .append
+    .html
+    .attr
+    .val
+    .text
+    .data -->
+
+  </body>
+</html>

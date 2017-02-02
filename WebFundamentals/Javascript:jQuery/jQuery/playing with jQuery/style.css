@@ -1,0 +1,32 @@
+body{
+    background-color: yellow;
+  }
+button{
+    display: block;
+    margin: 0 50px 30px 50px;
+  }
+  .blue {
+    color: blue;
+}
+.hide-show button{
+  display: inline-block;
+}
+.red-box, .green-box, .blue-box {
+      display: none;
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+}
+.red-box{
+  background-color: red;
+}
+.blue-box{
+  background-color: blue;
+}
+.green-box{
+  background-color: green;
+}
+.text-input{
+  margin-top: 20px;
+  display: block;
+}
