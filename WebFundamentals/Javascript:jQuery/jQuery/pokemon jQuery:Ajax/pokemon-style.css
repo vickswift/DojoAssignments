@@ -1,0 +1,29 @@
+body{
+  background-color: aqua;
+}
+ul{
+  width: 30px;
+  margin-left: 50px;
+}
+.wrapper{
+  display: block;
+  width: 970px;
+}
+.right-container{
+  width: 650px;
+  background-color: orange;
+  display: inline-block;
+}
+.pokedex{
+  display: inline-block;
+  width: 200px;
+  height: 500px;
+  border: 20px solid red;
+  vertical-align: top;
+  position: fixed;
+  text-align: center;
+}
+.images{
+  display: inline-block;
+  width: 700px;
+}
