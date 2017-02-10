@@ -1,0 +1,17 @@
+h1{
+  color: red
+}
+h2{
+  color: blue
+}
+#ninja{
+  font: 18px;
+}
+p{
+  background-color: yellow;
+}
+img{
+  display: center;
+  width: 400px;
+  height: 300px;
+}

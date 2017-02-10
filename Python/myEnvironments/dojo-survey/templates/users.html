@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" href="{{ url_for("static", filename='css/survey-style.css') }}"> -->
+    <title>User Info</title>
+  </head>
+  <body>
+    <div class="user-info">
+      <h2>Submitted Info</h2>
+        <b>Name:</b> <span>{{ sName }}</span><br>
+        <b>Dojo Location:</b> <span>{{ sDojos }}</span><br>
+        <b>Favorite Language:</b> <span>{{ sLanguage }}</span><br>
+        <b>Message:</b> <span>{{ sComment }}</span><br><br>
+
+        <form class="" action="/" method="get">
+          <input type="submit" name="submit" value="Go Back">
+        </form>
+
+    </div>
+
+  </body>
+</html>
