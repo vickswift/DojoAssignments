@@ -1,0 +1,40 @@
+<html>
+<head>
+  <title>Friends</title>
+</head>
+<body>
+  <h1>These are all my friends!</h1>
+  <p>First Name: Jay</p>
+  <p>Last Name: Patel</p>
+  <p>Occupation: Instructor</p>
+  <hr>
+  <p>First Name: Jimmy</p>
+  <p>Last Name: Jun</p>
+  <p>Occupation: Instructor</p>
+  <hr>
+  <h2>Add a Friend</h2>
+  <form action='/friends' method='POST'>
+    <label for="first_name">First Name:<input type="text" name="first" id="first_name"></label>
+    <label for="last_name">Last Name:<input type="text" name="last" id="last_name"></label>
+    <label for="occupation">Occupation:<input type="text" name="job" id="occupation"></label>
+    <input type="submit" value="Add">
+  </form>
+<hr>
+  <p>
+    {% for friend in friends: %}
+
+        <ul>
+            <li>First Name: {{ friend['first_name'] }}</li>
+            <li>Last Name: {{ friend['last_name'] }}</li>
+            <li>Occupation: {{ friend['occupation'] }}</li>
+            <li>Created: {{ friend['created_at'] }}</li>
+        </ul>
+        <form style="display: inline-block" action="/friends/{{ friend['id'] }}/edit" method="get"><input type="submit" value="Edit"></form>
+        <form style="display: inline-block" action="/remove_friend/{{ friend['id'] }}" method="post"><input type="submit" value="Delete"></form>
+<hr>
+{% endfor %}
+
+</p>
+
+</body>
+</html>

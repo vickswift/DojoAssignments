@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="A simple web app showcasing CRUD">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/full-friends-style.css') }}">
+    <title>Full Friends</title>
+  </head>
+  <body>
+
+    <h1>My Full Friends</h1>
+
+      {{ friends }}
+
+      <hr>
+
+    {% for friend in friends %}
+      <ul>
+        <li>First Name: {{friend["first_name"]}}</li>
+        <li>Last Name: {{friend["last_name"]}}</li>
+        <li>email: {{friend["email"]}}</li>
+      </ul>
+
+      <form class="index-submit-button" action="/friends/{{ friend["id"] }}/edit" method="get">
+        <input type="submit" name="" value="Edit">
+      </form>
+      <form class="index-submit-button" action="/friends/{{ friend["id"] }}/delete" method="post">
+        <input type="submit" name="" value="Delete">
+      </form>
+      <hr>
+    {%endfor%}
+
+    </form>
+
+    <h1>Enter name of your friend to be added to Database</h1>
+
+    <div class="">
+
+    <form class="" action="/friends" method="post">
+      <input type="text" name="first_name" placeholder="Enter First Name" value="">
+      <input type="text" name="last_name" placeholder="Enter Last Name" value="">
+      <input type="text" name="email" placeholder="Enter email" value="">
+      <input type="submit" name="add" value="Add">
+
+    </div>
+  </body>
+</html>

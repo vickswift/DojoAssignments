@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit friendsdb</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/full-friends-style.css') }}">
+  </head>
+  <body>
+    <h1>Edit Friends' List</h1>
+    <div class="edit-friend-color">
+      {{edit_friend}}
+    </div>
+
+    <form class="" action="/friends/{{edit_friend[0]["id"]}}" method="post">
+      <input type="text" name="first_name" placeholder="Enter First Name" value="{{edit_friend[0]["first_name"]}}">
+      <input type="text" name="last_name" placeholder="Enter Last Name" value="{{edit_friend[0]["last_name"]}}">
+      <input type="text" name="email" placeholder="Enter Email" value="{{edit_friend[0]["email"]}}">
+      <input type="submit" name="update" value="Update">
+
+    </form>
+
+  </body>
+</html>

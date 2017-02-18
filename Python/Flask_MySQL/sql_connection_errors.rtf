@@ -1,0 +1,49 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf760
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;\red0\green0\blue0;\red63\green63\blue63;
+\red255\green255\blue255;}
+{\*\expandedcolortbl;;\csgray\c95825;\csgray\c0\c85000;\cssrgb\c31373\c31373\c31373;
+\cssrgb\c100000\c100000\c100000;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Problem: 
+\f1\fs20 \cf2 \cb3 \CocoaLigature0 sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' (61)")
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 \
+\
+
+\b Fix: 
+\b0 Changed the port number to match the port your SQL server is running on\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf4 \cb5 \expnd0\expndtw0\kerning0
+Problem: mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)\cb1 \
+
+\b \cb5 fix:
+\b0  Make sure you supplied the correct password value to self.config.password\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1045, "Access denied for user 'lg'@'localhost' (using password: YES)")
+\f0\fs28 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+
+\b\fs28 \cf4 \cb5 \expnd0\expndtw0\kerning0
+fix:
+\b0  Make sure you supplied the correct user value to self.config.user\
+\
+#Commented out self.config.user == did not create error\
+\
+Problem: 
+\f1\fs20 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 NameError: global name 'ken' is not defined
+\f0\fs28 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+
+\b Fix: 
+\b0 value provided for self.config.user\'92 must match inputted parameter}

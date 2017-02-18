@@ -1,0 +1,20 @@
+/*.top-header-container{
+  display: block;
+  height: 60px;
+  width: 100%;
+  background-color: aqua;
+  padding: 10px 0 10px 10px;
+  box-sizing: border-box;
+  border-bottom: 2px;
+}
+.top-header-left{
+  display: inline-block;
+}
+.top-header-center{
+  display: inline-block;
+  margin-left: 540px;
+}
+.top-header-right{
+  display: inline-block;
+  margin-left: 210px;
+}*/

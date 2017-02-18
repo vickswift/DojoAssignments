@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- <link rel="stylesheet" href="{{ url_for("static", filename="css/wall-style.css") }}"> -->
+	{% include 'stylelinks.html' %}
+		<title>The Coding Dojo Wall</title>
+	</head>
+	<body>
+		<nav class="teal">
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">Coding Dojo Wall</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="#">Welcome {{ first_name }}</a></li>
+					<li><a href="/log_out">Log off</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<h1>Welcom to the Wall!</h1>
+			<div class="row">
+				<form class="col s12" action="{{ url_for('create_message') }}" method="post">
+					<div class="row">
+						<div class="input-field col s12">
+							<textarea name="message" class="materialize-textarea"></textarea>
+							<label for="message">Post your message!</label>
+						</div>
+					</div>
+					<button type="submit" class="btn">Post a message!</button>
+				</form>
+			</div>
+
+		</div>
+
+
+		{{ messages }}
+
+	</body>
+</html>

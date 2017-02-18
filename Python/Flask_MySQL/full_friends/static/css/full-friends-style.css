@@ -1,0 +1,23 @@
+.index-submit-button{
+  display: inline-block;
+  background-color: aqua;
+  margin-left: 15px;
+}
+body{
+  background-color: yellow;
+}
+h1{
+  color: blue;
+}
+.edit-friend-color{
+  background-color: red;
+  margin-bottom: 10px;
+}
+
+.edit-friend-color {
+  animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}

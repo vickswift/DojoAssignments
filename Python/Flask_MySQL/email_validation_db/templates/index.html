@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>Advanced Validation Example</title>
+</head>
+<body>
+  <h1>Enter a Valid(Any) Email!</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <form action='/addlist' method='POST'>
+    Email:<input type="text" name="email">
+    <input type="submit" value="Submit">
+  </form>
+
+  <hr>
+  <h3>Email Addresses Entered</h3>
+        {{email_list}}
+  <hr>
+
+  {% for email in email_list%}
+  <ul>
+      <li>Email: {{ email['email'] }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: {{ email['created_at'] }}</li>
+  </ul>
+    <form action="/remove_email/{{ email['id'] }}" method="post"><input type="submit" value="Delete"></form>
+    <hr>
+  {%endfor%}
+</body>
+</html>
