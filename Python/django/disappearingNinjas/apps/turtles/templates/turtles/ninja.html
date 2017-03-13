@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	{% load staticfiles %}
+    <title>Ninjas</title>
+</head>
+<body>
+    {% if display_ninja == "all" %}
+			<img src="{% static 'turtles/images/donatello.jpg' %}">
+			<img src="{% static 'turtles/images/leonardo.jpg' %}">
+			<img src="{% static 'turtles/images/michelangelo.jpg' %}">
+			<img src="{% static 'turtles/images/raphael.jpg' %}">
+  	{%elif display_ninja == 'blue' %}
+			<img src="{% static 'turtles/images/leonardo.jpg' %}">
+    {% elif display_ninja == 'orange' %}
+			<img src="{% static 'turtles/images/michelangelo.jpg' %}">
+    {% elif display_ninja == 'red' %}
+				<img src="{% static 'turtles/images/raphael.jpg' %}">
+    {% elif display_ninja == 'purple' %}
+				 <img src="{% static 'turtles/images/donatello.jpg' %}">
+    {% else %}
+				<img src="{% static 'turtles/images/notapril.jpg' %}">
+    {% endif %}
+</body>
+</html>

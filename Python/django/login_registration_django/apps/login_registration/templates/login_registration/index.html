@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+    <head>
+      {%load staticfiles%}
+  <link rel="stylesheet" href="{% static 'login_registration/css/log_reg-style.css' %}">
+    </head>
+    <body>
+        <div id="container">
+
+          {% if messages %}
+          <ul class="list-group">
+              {% for message in messages %}
+              <li class="list-group-item">{{ message }}</li>
+          </ul>
+          {% endfor %}
+          {% endif %}
+
+          <h1>Log In</h1>
+            <form class="{% url 'login' %}" action="index.html" method="post">
+              {% csrf_token %}
+              <div class="line">
+                <label for="email">Email *: </label>
+                <input type="text" name="email" />
+              </div>
+
+              <div class="line">
+                <label for="pwd">Password *: </label>
+                <input type="password" name="password" />
+              </div>
+
+              <div class="line submit">
+                <input type="submit" value="Login" />
+              </div>
+            </form>
+
+            <form action="{% url 'register' %}" method="post">
+              {% csrf_token %}
+                <h1>Sign Up</h1>
+
+                <div class="line">
+                  <label for="first name">First Name *: </label>
+                  <input type="text" name="first_name"/>
+                </div>
+
+                <div class="line">
+                  <label for="last name">Last Name *: </label>
+                  <input type="text" name="last_name"/>
+                </div>
+
+                <div class="line">
+                  <label for="email">Email *: </label>
+                  <input type="text" name="email" />
+                </div>
+
+                <div class="line">
+                  <label for="pwd">Password *: </label>
+                  <input type="password" name="password" />
+                </div>
+
+                <div class="line">
+                  <label for="conf_pwd">Confirm *: </label>
+                  <input type="password" name="confirm_password" />
+                </div>
+
+                <div class="line submit">
+                  <input type="submit" value="Register" />
+                </div>
+
+                <p>Note: Please make sure your details are correct before submitting form and that all fields marked with * are completed!.</p>
+            </form>
+        </div>
+    </body>
+</html>

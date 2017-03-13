@@ -2,15 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Date and time display</title>
+   {% load staticfiles %}
+   <link rel="stylesheet" href="{% static 'timedisplay/css/timedisplay-style.css' %}">
   </head>
   <body>
     <h1>Current Date & Time</h1>
 
-    <!-- It is {% now "jS F Y H:i" %} -->
-    {% now "M d\, Y" %} <br>
-    {% now "f A T" %}<br>
-    <!-- {{ local_time }} -->
+    <!-- You can use django time to present time -->
+    <!-- {% now "M d\, Y" %} <br>
+    {% now "f A T" %}<br> -->
+
+    <!-- Or you can retrieve date and time from the context inside views.py -->
+    <div class='container'>
+      {% if datetime %}
+          {% for dt in datetime %}
+          <p>{{dt.local_date}}</p>
+          <p>{{dt.local_time}}</p>
+          {% endfor %}
+      {% endif %}
+    </div>
 
   </body>
 </html>

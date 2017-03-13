@@ -1,0 +1,8 @@
+h1 {
+ margin: 50px 0 50px 320px;
+}
+
+#message, #number{
+  margin: 20px 100px;
+  background-color: aqua;
+}

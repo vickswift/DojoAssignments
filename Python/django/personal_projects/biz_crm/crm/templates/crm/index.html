@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load staticfiles %}
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+      <link rel="stylesheet" href="{% static 'crm/css/crm.css'%}">
+      <script type="text/javascript" src="{% static 'crm/js/crm.js' %}"></script>
+
+      <!-- jQuery -->
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+        $( function() {
+          $( "#accordion" )
+            .accordion({
+              header: "> div > h3"
+            })
+            .sortable({
+              axis: "y",
+              handle: "h3",
+              stop: function( event, ui ) {
+                // IE doesn't register the blur when sorting
+                // so trigger focusout handlers to remove .ui-state-focus
+                ui.item.children( "h3" ).triggerHandler( "focusout" );
+
+                // Refresh accordion to handle new order
+                $( this ).accordion( "refresh" );
+              }
+            });
+        } );
+        </script>
+
+  </head>
+  <body>
+      <div class="container">
+        <h1>Welcome to Easy-peazy CRM</h1>
+
+        <hr>
+
+        <div id="accordion">
+          <div class="group">
+            <h3>Paste Google spreadsheet's URL or manually enter your total monthly expenditure</h3>
+            <div>
+
+        <form class="" action="" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+              <label for="google-doc-spreadsheet">Copy/Paste your Google spreadsheet's URL:</label>
+              <input type="text" class="form-control" id="google-doc-spreadsheet" placeholder="Please your google spreadsheet URL here" name="g_sheet_url">
+          </div>
+          <div class="add-btn">
+            <input type="submit" class="btn btn-primary" name="formsubmit" value="Add & Analyze">
+          </div>
+        </form>
+
+        <hr>
+
+        <h3>Or Enter your expenses below</h3>
+
+          <form class="" action="{% url 'addExpenditure' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group row">
+              <label for="Playstation-sales" class="col-sm-2 col-form-label">Playstation Sales</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="Playstation-sales" placeholder="Enter playstation sales here" name="playstation_sales">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Playstation-expenses" class="col-sm-2 col-form-label">Playstation Expenses</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="Playstation-expenses" placeholder="Enter playstation expenses here" name="playstation_expenses">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="Xbox-sales" class="col-sm-2 col-form-label">Xbox Sales</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="Xbox-sales" placeholder="Enter xbox sales here" name="xbox_sales">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Playstation-expenses" class="col-sm-2 col-form-label">Xbox Expenses</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="Playstation-expenses" placeholder="Enter Xbox expenses here" name="xbox_expenses">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="Accessory-sales" class="col-sm-2 col-form-label">Accessory Sales</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="Accessory-sales" placeholder="Enter Accessory sales here" name="accessory_sales">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Accessory-expenses" class="col-sm-2 col-form-label">Accessory Expenses</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="Accessory-expenses" placeholder="Enter Accessory expenses here" name="accessory_expenses">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="Total-sales" class="col-sm-2 col-form-label">Total Sales</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="Total-sales" placeholder="Enter Total sales here" name="total_sales">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Total-expenses" class="col-sm-2 col-form-label">Total Expenses</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="Total-expenses" placeholder="Enter Total expenses here" name="total_expenses">
+              </div>
+            </div>
+
+            <div class="add-btn">
+              <input type="submit" class="btn btn-primary" name="formsubmit" value="Add & Analyze">
+            </div>
+
+          </form>
+
+          <hr>
+
+          <h1>Cost-To-Profit Overview</h1>
+
+          <table class="table">
+              <thead>
+                <tr>
+                  <th>Date Added</th>
+
+                  <th>Playstation Sales</th>
+                  <th>Playstation Expenses</th>
+
+                  <th>Xbox Sales</th>
+                  <th>Xbox Expenses</th>
+
+                  <th>Accessory Sales</th>
+                  <th>Accessory Expenses</th>
+
+                  <th>Total Monthly Sales</th>
+                  <th>Total Monthly Expenditure</th>
+
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              {% for transaction in expenditure %}
+              <tbody>
+                <tr>
+                  <td>{{transaction.created_at}}</td>
+
+                  <td>{{transaction.playstation_sales}}</td>
+                  <td>{{transaction.playstation_expenses}}</td>
+
+                  <td>{{transaction.xbox_sales}}</td>
+                  <td>{{transaction.xbox_expenses}}</td>
+
+                  <td>{{transaction.accessory_sales}}</td>
+                  <td>{{transaction.accessory_expenses}}</td>
+
+                  <td>{{transaction.total_sales}}</td>
+                  <td>{{transaction.total_expenses}}</td>
+
+                  <td><a href="{% url 'deleteExpenditure' id=transaction.id %}">remove</a></td>
+
+                </tr>
+              </tbody>
+              {% endfor %}
+
+          </table>
+
+        </div>
+      </div>
+
+      <!-- <hr> -->
+
+      <div id="accordion">
+        <div class="group">
+          <h3>Section 1</h3>
+          <div>
+
+
+
+      <div id="divExpensesOverTimeChart"></div>
+
+    <div>
+        <button onclick="showChartEditor()">Configure This Chart</button>
+    </div>
+
+  </div>
+</div>
+
+
+  </body>
+</html>

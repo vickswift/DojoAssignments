@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="survey-style.css">
+
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+    $(document).ready(function (){
+          // this triggers the connection event in our server!
+          var socket = io.connect();
+
+      //   // this event will emit to the server when somebody pushed the button
+        $('button').click(function(){
+        socket.emit("push_button", {action: 'Somebody pushed the client-side button'});
+      });
+      //
+      //       // this event will emit to the server to reset the counter into 0
+      //   $('#reset').click(function(){
+      //   socket.emit("reset_counter", {action: 'Resetting the counter'});
+      // });
+      //
+      //       // this event triggered every button clicked and displays how many times it clicked.
+      //       socket.on('push_counter', function (data){
+      //         $('#message').html('The button has been pushed '+JSON.stringify(data.response)+' time(s)');
+      //       });
+      //
+      //       socket.on('reset_response', function (data){
+      //         $('#message').html('');
+      //       });
+        })
+    </script>
+
+  </head>
+  <body>
+    <button type="button" name="button">This is working</button>
+  </body>
+</html>

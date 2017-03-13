@@ -1,8 +1,17 @@
 from django.shortcuts import render, redirect
+from .models import People
+
 # Create your views here.
 def index(request):
   print ("*"*50)
   return render(request, 'first_app/index.html')
+
+def show_models(request):
+    People.objects.create(first_name="Victor", last_name='Adu')
+    people = People.objects.all()
+    print(people)
+    return render(request, 'first_app/show-models.html')
+
 
 def users(request):
   print ("~"*50)

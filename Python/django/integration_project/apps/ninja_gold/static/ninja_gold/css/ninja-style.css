@@ -1,0 +1,48 @@
+.form-container{
+  display: block;
+  background-color: aqua;
+  width: 970px;
+  text-align: center;
+  margin-top: 15px;
+}
+.farm{
+  display: inline-block;
+  background-color: red;
+  width: 200px;
+  height: 200px;
+}
+.cave{
+  display: inline-block;
+  background-color: red;
+  width: 200px;
+  height: 200px;
+}
+.house{
+  display: inline-block;
+  background-color: red;
+  width: 200px;
+  height: 200px;
+}
+.casino{
+  display: inline-block;
+  background-color: red;
+  width: 200px;
+  height: 200px;
+}
+.boxes{
+  margin: 10px;
+}
+.activities{
+  width: 970px;
+  background-color: yellow;
+}
+.activities-container{
+  margin-top: 25px;
+  display: block;
+}
+.green{
+  color: green;
+}
+.red{
+  color: red;
+}

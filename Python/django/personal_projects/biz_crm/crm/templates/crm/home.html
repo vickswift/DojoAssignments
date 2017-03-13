@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <script type="text/javascript" src="{% static 'crm/css/crm.css' %}"></script>
+
+    <style media="screen">
+
+    h1{
+      color: white;
+    }
+
+    button{
+      color: white;
+      font-size: 50px;
+      width: 165px;
+      margin: 425px 0 0 260px;
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+    button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+      }
+
+    button:hover {
+        background-color: aqua; /* Green */
+        color: white;
+      }
+
+
+    </style>
+
+    <title>Home Page</title>
+  </head>
+  <body id="bg" style="background-image: url('{% static "crm/img/crm-analytic-homepage.jpg"%}')";>
+      <!-- <img src="{% static 'crm/img/crm-analytic-homepage.jpg' %}" alt="" height="100%" width="100%"> -->
+
+    <div class="easy-peazy">
+
+      <h1>Welcome to Easy-Peazy CRM Software</h1>
+
+    </div>
+
+      <button type="submit" name="button"><a href="{% url 'index' %}">ENTER</a></button>
+
+
+  </body>
+</html>

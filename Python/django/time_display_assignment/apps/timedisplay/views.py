@@ -1,14 +1,14 @@
 from django.shortcuts import render #HttpResponse
 import datetime
-from django.utils.timezone import localtime, now
-# Create your views here.
+from datetime import datetime
+
 def index(request):
-    print ("*"*50)
-
-    # now = datetime.datetime.utcnow().replace(tzinfo=utc)
-    local = localtime(now())
-
-    current_date = {
-    'local_time': local
+    date = datetime.now().date().strftime('%B %-d, %Y')
+    time = datetime.now().time().strftime('%-I:%M %p')
+    context = {
+        'datetime' : [
+            {'local_date': date},
+            {'local_time': time},
+        ]
     }
-    return render(request, 'timedisplay/index.html', current_date)
+    return render(request, 'timedisplay/index.html', context)
