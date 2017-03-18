@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mongoose demo</title>
+  </head>
+  <body>
+    <h2>Submitted Information</h2>
+    <% for (var person in user_fetched) {%>
+  	<ul>
+  		<li>Name: <strong><%= user_fetched[person].name %></strong></li>
+  		<li>Age: <strong><%= user_fetched[person].age %></strong></li>
+  	</ul>
+    <br>
+    <% } %>
+    <hr>
+    <form class="" action="/users" method="post">
+      Name: <input type="text" name="inputName" value="">
+      Age: <input type="text" name="inputAge" value="">
+      <input type="submit" name="submit" value="Submit">
+    </form>
+  </body>
+</html>
