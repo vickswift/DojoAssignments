@@ -1,0 +1,18 @@
+{
+  "name": "Angular_Modularize",
+  "homepage": "https://github.com/vickswift/DojoAssignments",
+  "authors": [
+    "Victor Adu <aduvictor@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

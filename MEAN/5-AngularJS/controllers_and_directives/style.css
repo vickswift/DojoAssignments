@@ -1,0 +1,9 @@
+.left, .right {
+  display: inline-block;
+  width: 45%;
+  border: 1px solid black;
+  vertical-align: top;
+  max-height: 400px;
+  overflow-y: scroll;
+  padding: 5px;
+ }

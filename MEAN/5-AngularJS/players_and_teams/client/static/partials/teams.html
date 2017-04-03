@@ -1,0 +1,35 @@
+<div ng-controller='teamsController'>
+
+  <div class="form-container">
+
+  <form class="form-horizontal">
+      <div class="form-group">
+          <label for="team-name" class="control-label col-xs-2">Name:</label>
+          <div class="col-xs-10">
+              <input type="text" class="form-control" id="team-name" placeholder="Name" ng-model='newTeam.name'>
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="col-xs-offset-10 col-xs-8">
+              <button type="submit" class="btn btn-primary" ng-click='createTeam()'>Add New Team</button>
+          </div>
+      </div>
+      </form>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Actions</th>
+
+          </tr>
+        </thead>
+        <tbody ng-repeat="team in teams">
+          <tr >
+            <td>{{ team.name }}</td>
+            <td><button type="button" name="button" ng-click='removeTeam(team)'>Remove Team</button></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div ng-controller='newController'>  <!--You can choose to omit this and everything will render fine since we calling it in controller-->
+
+  <div class="table-container">
+
+    <div class="search-field">
+      <label for="search">Search Friends:</label>
+        <input type="text" id="search" ng-model="filter_friends">
+      </div>
+
+      <br><br>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Show</th>
+            <th>Update</th>
+            <th>Delete</th>
+
+          </tr>
+        </thead>
+        <!-- <tbody ng-repeat="friend in friends | orderBy:'first_name'| filter:filter_name track by $index"> -->
+        <tbody ng-repeat="friend in friends | filter: filter_friends">
+          <tr >
+            <td ng-bind="friend.first_name + ' ' + friend.last_name"></td>
+            <td ng-bind="friend.birthday | date: dd/MM/yyyy"></td>
+            <td><a href="#!/show/{{friend._id}}">show</a></td>
+            <td><a href="#!/edit/{{friend._id}}">edit</a></td>
+            <td><a href="#!" ng-click="friendDelete(friend._id)">delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="col-xs-offset-10 col-xs-8">
+        <a href="#!/new"><button type="button" name="button">New Friend</button></a>
+      </div>
+  </div>
+</div>

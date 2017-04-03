@@ -1,0 +1,35 @@
+<div ng-controller='playersController'>
+
+  <div class="form-container">
+
+  <form class="form-horizontal">
+      <div class="form-group">
+          <label for="player-name" class="control-label col-xs-2">Name:</label>
+          <div class="col-xs-10">
+              <input type="text" class="form-control" id="player-name" placeholder="Name" ng-model='newPlayer.name'>
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="col-xs-offset-10 col-xs-8">
+              <button type="submit" class="btn btn-primary" ng-click='addPlayer()'>Create player</button>
+          </div>
+      </div>
+      </form>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Actions</th>
+
+          </tr>
+        </thead>
+        <tbody ng-repeat="player in players">
+          <tr >
+            <td>{{ player.name }}</td>
+            <td><button type="button" name="button" ng-click='removePlayer(player)'>Remove Player</button></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>

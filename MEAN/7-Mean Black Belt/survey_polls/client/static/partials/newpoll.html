@@ -1,0 +1,77 @@
+<!-- <div ng-controller = 'pollsController as PC'>
+  <a href="#!/home">Cancel</a>
+  <a href="/logout" ng-click=PC.logout()>Log Out</a>
+  <h1>Create new poll:</h1>
+  <h3>Put the question and options here:</h3>
+
+    <div class="form-container">
+
+      <form class="form-horizontal">
+          <div class="form-group">
+              <label for="question" class="control-label col-xs-2">Question:</label>
+              <div class="col-xs-10">
+                <input type="text" ng-model='PC.newPoll.question' id="question"></p>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="option1" class="control-label col-xs-2">Option 1:</label>
+              <div class="col-xs-10">
+                <input type="text" ng-model='PC.newPoll.options[0]' id="option1"></p>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="option2" class="control-label col-xs-2">Option 2:</label>
+              <div class="col-xs-10">
+                <input type="text" ng-model='PC.newPoll.options[1]' id="option2"></p>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="option3" class="control-label col-xs-2">Option 3:</label>
+              <div class="col-xs-10">
+                <input type="text" ng-model='PC.newPoll.options[2]' id="option3"></p>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="option4" class="control-label col-xs-2">Option 4:</label>
+              <div class="col-xs-10">
+                <input type="text" ng-model='PC.newPoll.options[3]' id="option4"></p>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <div class="col-xs-offset-10 col-xs-8">
+                  <button type="submit" class="btn btn-primary" ng-click='PC.create()'>Submit</button>
+              </div>
+          </div>
+        </form>
+    </div>
+
+  </div> -->
+
+
+
+
+  <div class="subdiv" ng-controller = 'pollsController as PC'>
+      <a href="#/home">Cancel</a>
+      <a href="/logout" ng-click=PC.logout()>Log Out</a>
+      <h1>Create new poll:</h1>
+      <form>
+          <p> Question:
+          <input type="text" ng-model='PC.newPoll.question'></p>
+          <p> Option 1:
+          <input type="text" ng-model='PC.newPoll.options[0]'></p>
+          <p> Option 2:
+          <input type="text" ng-model='PC.newPoll.options[1]'></p>
+          <p> Option 3:
+          <input type="text" ng-model='PC.newPoll.options[2]'></p>
+          <p> Option 4:
+          <input type="text" ng-model='PC.newPoll.options[3]'></p>
+          <input type="submit" ng-click='PC.create()'></input>
+      </form>
+
+
+  </div>
