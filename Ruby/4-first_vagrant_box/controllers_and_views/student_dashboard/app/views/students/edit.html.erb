@@ -1,0 +1,60 @@
+<div class="container">
+  <h2>Editing Student</h2>
+
+  <% if flash[:errors] %>
+  	<% flash[:errors].each do |error| %>
+    <ul style="color:red">
+      <li><%= error %></li>
+    </ul>
+  	<% end %>
+  <% end %>
+
+  <form class="form-horizontal" action="/dojos/<%= @student.dojo_id %>/students/<%= @student.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="f-name">First Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="f-name" name="student[first_name]" value="<%= @student.first_name %>">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="f-name">Last Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="l-name" name="student[last_name]" value="<%= @student.last_name %>">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" name="student[email]" value="<%= @student.email %>">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="sel1">Dojo:</label>
+      <div class="col-sm-10">
+        <select name="student[dojo_id]">
+    			<% @dojos.each do |dojo| %>
+    				<% if dojo.id == @student.dojo_id %>
+    					<option selected value="<%= dojo.id %>"><%= dojo.branch %></option>
+    				<% else %>
+    					<option value="<%= dojo.id %>"><%= dojo.branch %></option>
+    				<% end %>
+    			<% end %>
+    		</select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Update</button>
+      </div>
+    </div>
+  </form>
+
+  <a href="/dojos" class="col-sm-offset-2" >Home</a> |
+  <a href="/dojos/<%= @student.dojo_id %>"><%= @student.first_name %></a>
+</div>

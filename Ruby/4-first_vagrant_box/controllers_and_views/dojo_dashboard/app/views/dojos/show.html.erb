@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+
+    <h2><%= @dojo.branch %></h2>
+
+    <p><b>Street:</b><%=@dojo.street%></p>
+    <p><b>City:</b><%=@dojo.city%></p>
+    <p><b>State:</b><%=@dojo.state%></p>
+
+  </div>
+
+  <a href="/dojos"><button type="button" name="button">Home</button></a> | <a href="/dojos/<%= @dojo.id %>/edit"><button type="button" name="button">Edit</button></a>
+
+</div>

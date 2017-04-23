@@ -1,0 +1,32 @@
+<div class="container">
+	<% if flash[:success] %>
+  		<div class="success">
+  			<p><%= flash[:success] %></p>
+		</div>
+	<% end %>
+	<table class="table table-bordered">
+		<tr>
+			<td colspan='3'><strong><u>Submitted Information</u></strong></td>
+		</tr>
+		<tr>
+			<td>Name:</td>
+			<td><%= @result['name'] %></td>
+		</tr>
+		<tr>
+			<td>Dojo Location:</td>
+			<td><%= @result['location'] %></td>
+		</tr>
+		<tr>
+			<td>Favorite Language:</td>
+			<td><%= @result['fave_language'] %></td>
+		</tr>
+		<tr>
+			<td>Comment:</td>
+			<td><%= @result['comments'] %></td>
+		</tr>
+
+	</table>
+	<button type="button" name="button"><%= link_to "Go back", root_path %></button>
+
+
+</div>

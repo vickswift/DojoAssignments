@@ -1,0 +1,163 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww37900\viewh21300\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Further migration examples\
+\
+\
+* Create project called user_cars\
+$ rails new user_cars\
+\
+* create a table called \'93User\'94 with name:string, email:string age:string\
+$ cd user_cars\
+$ rails g model User name:string email:string age:string\
+\
+* check schema.rb to make sure it was created\
+$ rake db:migrate:status\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 $ rake db:migrate\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+* create/run a migration file to change the age column from a string to a integer\
+\
+$ rails generate migration ChangeAgeTypeOfUsers\
+\
+=> Step into the newly created migration file and add the following to the ChangeAgeOfUsers\'92 class and save afterwards\
+\
+	class ChangeAgeTypeOfUsers < ActiveRecord::Migration\
+ 	      def change\
+  	        change_column :users, :age, :integer\
+  	      end\
+	end\
+\
+* check schema.rb\
+\
+* create/run migration to remove name column\
+\
+$ rails g migration RemoveNameColumnFromUsers name:string\
+\
+=> Running \'91rake db:migrate:status\'92 , you will see that \'91Remove name column from users\'92 status is down. \
+=> Meaning it has been removed. Now we have to run \'91rake db:migrate\'92 to shave to our db\
+\
+$ rake db:migrate\
+\
+=> Checking the schema.rb file, you should see the \'91name\'92 field/column removed \
+\
+* create/run migration to add first_name:string && last_name:string (in one migration file)\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 $ rails g migration AddNameColumnToUsers first_name:string last_name:string\
+$ rake db:migrate\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+* create/run migration to change the name of the \'93email\'94 column to  \'93user_email\'94\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 $ rails g migration ChangeEmailColumnOfUsers\
+\
+=> Step into the newly created migration file and add the following to the ChangeEmailColumnOfUsers\'92 class and save afterwards\
+\
+class ChangeEmailColumnOfUsers < ActiveRecord::Migration\
+  def change\
+    rename_column :users, :email, :user_email\
+  end\
+end\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+* Create Table called \'93Car\'94 with name:string, mph:string\
+\
+$ rails g model Car name:string mph:string\
+$ rake db:migrate\
+\
+* create/run migration to change \'93name\'94 column to \'93model\'94\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 $ rails g migration RenameNameColumnInCars 
+\i model:string
+\i0 \
+\
+=> Sometimes if the model:string, doesn\'92t automatically change the name for you when you look at the RenameNameColumnInCars\'92 class inside the newly created file under migrate,\
+=> manually step into the RenameNameColumnInCars\'92 class and alter it like following and save afterwards:\
+\
+class RenameNameColumnInCars < ActiveRecord::Migration\
+  def change\
+    rename_column :cars, :name, :model\
+  end\
+end\
+\
+\
+$ rake db:migrate\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+* create/run migration to update add column make:string & rename \'93mph\'94 to \'93max_mph\'94 (in one migration file)\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 $ rails g migration AddMakeColumnAndRenameMPHInCars\
+\
+=> Step into the newly created migration file and add the following to the AddMakeColumnAndRenameMPHInCars\'92 class and save afterwards:\
+\
+class AddMakeColumnAndRenameMphInCars < ActiveRecord::Migration\
+  def change\
+    add_column :cars, :make, :string\
+    rename_column :cars, :mph, :max_mph\
+  end\
+end\
+\
+$ rake db:migrate\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+* create/run migration to add column odometer:integer with a default value of 0\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 $ rails g migration AddOdometerColumnInCars\
+\
+=> Step into the newly created migration file and add the following to the AddOdometerColumnInCars\'92 class and save afterwards:\
+\
+class AddOdometerColumnInCars < ActiveRecord::Migration\
+  def change\
+    add_column :cars, :odometer, :integer, :default => 0\
+  end\
+end\
+\
+$ rake db:migrate\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+
+\b * create/run migration that will create a reference from the car table to the user table (car belongs to a user & a user has many cars)\
+
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 $ rails g migration AddReferenceFromCarsToUsers\
+\
+
+\i \ul rails g model Message content:text user:references
+\i0 \ulnone \
+\
+\
+=> Step into the newly created migration file and add the following to the AddReferenceFromCarsToUsers\'92 class and save afterwards:\
+\
+class AddReferenceFromCarsToUser < ActiveRecord::Migration\
+  def change\
+    add_reference :cars, :user, index: true\
+  end\
+end\
+\
+$ rake db:migrate\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+
+\b * now go inside of your rails console and try to create a user and two cars for that user (be sure to check your model files if creating a car for a user doesn\'92t work)\
+
+\b0 \
+#Creation of User Object\
+user = User.create(first_name:"Portia", last_name:"Obiri", user_email:"a@example.com", age:23)\
+\
+#Creation of Car Objects\
+Car.create(model: "Altima", max_mph: 160, make:"Nissan", odometer:2134)\
+Car.create(model: "Accord", max_mph: 120, make:"Honda", odometer:51034)\
+}

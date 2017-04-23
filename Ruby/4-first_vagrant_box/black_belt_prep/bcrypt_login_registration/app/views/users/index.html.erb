@@ -1,0 +1,10 @@
+<h1>User Dash</h1>
+<h3>Welcome to the User's Dasboard</h3>
+
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<hr>
+
+<a href="/logout" class="btn btn-default">Logout </a>

@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+
+    <!-- <h2>List of Dojos</h2> -->
+    <h1>Listing <%= pluralize(@dojos.count, "Dojo") %></h1>
+
+    <% if flash[:notice] %>
+    	<p><%= flash[:notice] %></p>
+    <% end %>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Coding Dojo Branch</th>
+          <th>Street</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @dojos.each do |dojo| %>
+
+        <tr>
+          <td><%= dojo.branch %></td>
+          <td><%= dojo.street %></td>
+          <td><%= dojo.city %></td>
+          <td><%= dojo.state %></td>
+          <td>
+            <a href="/dojos/<%= dojo.id %>"> Show</a> |
+            <a href="/dojos/<%= dojo.id %>/edit"> Edit</a> |
+            <a href="/dojos/<%= dojo.id %>" data-method="delete"> Delete</a> <!-- as of Rails 4, 'data-method' implictly check for authenticity_token for us by just putting the delete url in an anchor tag instead of a post. -->
+
+            <!-- Or you could perform same operations as above with below lines of code. Your choice -->
+        
+
+          </td>
+        </tr>
+
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+  <a href="/dojos/new"><button type="button" name="button">New Dojo</button></a>
+
+</div>

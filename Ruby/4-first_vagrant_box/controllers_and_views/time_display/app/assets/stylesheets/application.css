@@ -1,0 +1,41 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ .wrapper{
+   display: block;
+   margin: 120px 200px 50px 500px;
+   /*text-align: center;*/
+ }
+ .date-time-display-title{
+   font-weight: bold;
+   text-align: center;
+   border: 2px solid black;
+   margin: 20px 0 20px 50px;
+   width: 200px;
+   text-align: center;
+
+ }
+ .date-time-display{
+   text-align: center;
+   border: 2px solid black;
+   width: 300px;
+   text-align: center;
+
+ }
+.date-display, .time-display{
+  font-size: 25px;
+  font-weight: bold;
+}
